@@ -1,0 +1,81 @@
+body {
+    background-color: #E5E5E5;
+}
+
+div strong {
+    font-weight: bold;
+}
+
+.top {
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #FFFFFF;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.top ion-icon {
+    width: 86.19px;
+    height: 52.94px;
+}
+
+.logo {
+    margin-left: 22px;
+}
+
+.container {
+    margin-top: 106px;
+}
+
+.mensagem {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #FFFFFF;
+    margin-bottom: 4px;
+    padding: 10px 9px 10px 8px;
+    border-radius: 2px;
+}
+
+.time {
+    color: rgb(156, 156, 156);
+}
+
+.time, .to, .from, .text{
+    margin: 0 0.8% 0.1% 0.1%;
+}
+.reservada {
+    background-color: #FFDEDE;
+}
+
+.status {
+    background-color: #DCDCDC;
+
+}
+
+.bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.bottom input {
+    width: 100%;
+    height: 80px;
+    position: relative;
+}
+
+.bottom ion-icon {
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    right: 25px;
+}

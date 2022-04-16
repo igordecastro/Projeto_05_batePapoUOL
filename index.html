@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="./assets/reset.css">
+    <title>Bate Papo UOL</title>
+</head>
+
+<body>
+    <!-- PENSANDO NO LAYOUT -->
+    <!-- Div .topo .container(ul mensagens) .mensagem .reservada .status .bottom
+
+    corpo do site será as mensagens
+    exitem diferentes tipos de mensagens com diferenças no css
+    topo: logo do site, icone de pessoas
+    bottom fixado: onde for escrever a mensagem e ícone de enviar
+    - Mensagens de status (**Entrou** ou **Saiu** da sala): deve ter o fundo cinza
+    - Mensagens reservadas (**Reservadamente**): deve ter o fundo rosa
+    - Mensagens normais: devem ter o fundo branco
+    -->
+    <div class="top">
+        <div class="logo">
+            <img src="./assets/images/logo 1.svg" alt="logo">
+        </div>
+        <div class="icon">
+            <ion-icon name="people"></ion-icon>
+        </div>
+
+    </div>
+    <div class="container">
+    </div>
+    </div>
+    <div class="bottom">
+        <input type="text" class="mensagemEscrita">
+        <ion-icon name="paper-plane-outline" onclick="enviarMensagem()"></ion-icon>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="./assets/scripts.js"></script>
+
+</body>
+
+</html>
