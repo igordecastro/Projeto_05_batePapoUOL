@@ -1,27 +1,14 @@
-/* LÓGICA PARA O JAVASCRIPT:  
-    *Rolar automaticamente a página (pesquisar scrollIntoView)
-    *Deixar as mensagens reservadas visíveis somente para o destinatário específico
-    *Ao entrar na sala o usuário deve inserir seu nome (prompt)
-        *enviar o nome para o servidor para cadastrar o usuário se o servidor responder com sucesso
-        *se o servidor retornar com errp o nome está em uso: pedir para o usuário digitar outro nome
-    *A cada 4 segundos avisar que o usuário está na sala, caso contrário será considerado que "saiu da sala"
-    *Inserir a mensagem no HTML
-    *Mandar a mensagem para o servidor (push)
-    *Pegar a mensagem do servidor e atualizar a págna a cada 3s (get)
-*/
-
-
 let nome = prompt("Qual seu nome?")
-        nome = {
-            name: nome
-        }
+nome = {
+    name: nome
+}
 let entrarSala = axios.post("https://mock-api.driven.com.br/api/v6/uol/participants", nome);
 
 entrarSala.catch(function () {
-            nome.name = prompt("Digite outro nome pois esse já está em uso:");
-        });
+    nome.name = prompt("Digite outro nome pois esse já está em uso:");
+});
 function manterConexao() {
-    axios.post("https://mock-api.driven.com.br/api/v6/uol/status",nome);
+    axios.post("https://mock-api.driven.com.br/api/v6/uol/status", nome);
 }
 let idInterval = setInterval(manterConexao, 4000);
 
@@ -59,7 +46,7 @@ function renderizarMensagens() {
                     <div class="from"><strong>${mensagens[i].from}</strong></div>
                     <div class="text">${mensagens[i].text}</div>
                 </div>`
-        } else if(mensagens[i].type === "private_message" && mensagens[i].to === nome.name){
+        } else if (mensagens[i].type === "private_message" && mensagens[i].to === nome.name) {
             chat.innerHTML += `
                 <div class="mensagem reservada">
                     <div class="time">(${mensagens[i].time})</div>
@@ -69,6 +56,7 @@ function renderizarMensagens() {
                 </div>`
         }
     }
+    aparecerMensagem()
 }
 
 
@@ -85,11 +73,15 @@ function enviarMensagem() {
     const promise = axios.post("https://mock-api.driven.com.br/api/v6/uol/messages", mensagemEnviada)
 
     promise.then(pegarMensagens);
-    promise.catch(function (){
+    promise.catch(function () {
         window.location.reload();
     });
+    document.querySelector(".mensagemEscrita").value = '';
+    aparecerMensagem()
+}
+setInterval(pegarMensagens, 3000);
+
+function aparecerMensagem() {
     const apareca = document.querySelector('.mensagem');
     apareca.scrollIntoView();
 }
-
-setInterval(pegarMensagens, 3000);
