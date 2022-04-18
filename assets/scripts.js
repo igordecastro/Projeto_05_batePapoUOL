@@ -82,6 +82,6 @@ function enviarMensagem() {
 setInterval(pegarMensagens, 3000);
 
 function aparecerMensagem() {
-    const apareca = document.querySelector('.mensagem');
-    apareca.scrollIntoView();
+    const container = document.querySelector('.container');
+    container.lastElementChild.scrollIntoView();
 }
